@@ -14,243 +14,297 @@
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     ></script>
   </head>
-  <body class="px-10 py-5">
-    <section>
+  <body class="px-10 py-5 w-screen overflow-x-hidden">
+    <section class="ml-40">
       <h1 class="font-bold text-3xl">
         QUANTIFYING THE VALUE OF AN EARLY WARNING SYSTEM ON DENGUE PREVENTION
       </h1>
     </section>
-    <section class="p-5">
-      <h2>Simulation outputs</h2>
-      <img src="anim.gif" alt="Final network figure" />
-      <img src="final_network_figure.png" alt="Final network figure" />
-    </section>
-    <section class="p-5">
-      <h2>Attributes of individual agents</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Attributes</th>
-            <th>Descriptions</th>
-            <th>Values</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Disease State</td>
-            <td>Agent occupies one of four disease states</td>
-            <td>Susceptible, Exposed, Infectious or Recovered</td>
-          </tr>
-          <tr>
-            <td>Symptomatic Status</td>
-            <td>Agent has dengue symptoms</td>
-            <td>True or False</td>
-          </tr>
-          <tr>
-            <td>Information State</td>
-            <td>Awareness of dengue circulation</td>
-            <td>Uninformed or Informed</td>
-          </tr>
-          <tr>
-            <td>First Informed</td>
-            <td>Time when agent becomes informed of dengue circulation</td>
-            <td>Integer</td>
-          </tr>
-          <tr>
-            <td>DART Informed</td>
-            <td>Number of times informed by DART</td>
-            <td>Integer</td>
-          </tr>
-          <tr>
-            <td>Talk Informed</td>
-            <td>Number of times informed by word-of-mouth communication</td>
-            <td>Integer</td>
-          </tr>
-          <tr>
-            <td>Total Informed</td>
-            <td>Total number of times informed of dengue circulation</td>
-            <td>Integer</td>
-          </tr>
-          <tr>
-            <td>Behavior State</td>
-            <td>Adoption of health-protective behavior</td>
-            <td>Adopted or Not Adopted</td>
-          </tr>
-          <tr>
-            <td>Adoption Threshold</td>
-            <td>
-              Willingness to adopt health-protective behavior once informed
-            </td>
-            <td>0 to 1</td>
-          </tr>
-          <tr>
-            <td>Mosquito Contact Reduction Efficacy</td>
-            <td>
-              Intensity of behavior adoption when reducing mosquito contact
-            </td>
-            <td>0 to 0.7</td>
-          </tr>
-          <tr>
-            <td>Insecticide Efficacy</td>
-            <td>Intensity of behavior adoption when using insecticide</td>
-            <td>0 to 0.8</td>
-          </tr>
-          <tr></tr>
-        </tbody>
-      </table>
-    </section>
-    <section class="p-5">
-      <h2>Dengue transmission and information diffusion parameters</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Parameters</th>
-            <th>Descriptions</th>
-            <th>Values</th>
-            <th>Sources</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><p>\(\nu_h\)</p></td>
-            <td>Transition rate from exposed to infectious state for humans</td>
-            <td>1/5 days<sup>-1</sup><br />var = 0.001</td>
-            <td>Manore et al., 2015</td>
-          </tr>
-          <tr>
-            <td><p>\(\mu_h\)</p></td>
-            <td>
-              Transition rate from infectious to recovered state for humans
-            </td>
-            <td>
-              1/6 days<sup>-1 <br /> </sup>var = 0.001
-            </td>
-            <td>Manore et al., 2015</td>
-          </tr>
-          <tr>
-            <td><p>\(\psi_v\)</p></td>
-            <td>
-              Natural per capita emergence rate of female adult mosquito
-              emergence
-            </td>
-            <td>1/3</td>
-            <td>Manore et al., 2015</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(\mu_v\)</p>
-            </td>
-            <td>Natural death rate of mosquitoes</td>
-            <td>1/40</td>
-            <td>Andraud et al., 2012</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(\nu_v\)</p>
-            </td>
-            <td>
-              Transition rate from exposed to infectious state for mosquitoes
-            </td>
-            <td>1/8 days<sup>-1</sup></td>
-            <td>Manore et al., 2015</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(\sigma_v\)</p>
-            </td>
-            <td>Maximum times one mosquito bite human per day</td>
-            <td>1/2</td>
-            <td>Manore et al., 2015</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(\sigma_h\)</p>
-            </td>
-            <td>Maximum mosquito bites human can sustain per day</td>
-            <td>19</td>
-            <td>Manore et al., 2015</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(\beta_{hv}\)</p>
-            </td>
-            <td>
-              Transmission probability between infectious mosquito and
-              susceptible human
-            </td>
-            <td>0.50</td>
-            <td>Andraud et al., 2012</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(\beta_{vh}\)</p>
-            </td>
-            <td>
-              Transmission probability between infectious human and susceptible
-              host
-            </td>
-            <td>0.75</td>
-            <td>Andraud et al., 2012</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(e\)</p>
-            </td>
-            <td>Mosquito death rate from pesticide use</td>
-            <td>0.50</td>
-            <td>Khan et al., 2021</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(K_v\)</p>
-            </td>
-            <td>Mosquito carrying capacity</td>
-            <td>5000</td>
-            <td>Baseline value</td>
-          </tr>
-          <tr>
-            <td>
-              <p>\(N_h\)</p>
-            </td>
-            <td>Total human population</td>
-            <td>1000</td>
-            <td>Baseline value</td>
-          </tr>
-          <tr>
-            <td>Initially infected</td>
-            <td>Percent of initial infected population</td>
-            <td>0.05 %</td>
-            <td>Baseline value</td>
-          </tr>
-          <tr>
-            <td>Edge probability</td>
-            <td>Probability two agents connect</td>
-            <td>0.03 %</td>
-            <td>Baseline value</td>
-          </tr>
-          <tr>
-            <td>Simulation period</td>
-            <td>Simulation period run-time</td>
-            <td>200 days</td>
-            <td>Baseline value</td>
-          </tr>
-          <tr>
-            <td>Human time step</td>
-            <td>Time step for agent-based model simulation</td>
-            <td>0.25 days</td>
-            <td>Baseline value</td>
-          </tr>
-          <tr>
-            <td>Mosquito time step</td>
-            <td>Time step for ODE model</td>
-            <td>0.005 days</td>
-            <td>Baseline value</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    <section class="p-5">
-      <h2>Citations</h2>
-    </section>
+
+    <div
+      class="flex flex-col w-40 fixed top-0 left-0 h-full pt-5 flex-1 bg-gray-800"
+    >
+      <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+        <nav
+          class="mt-5 flex-1 px-2 bg-gray-800 space-y-1"
+          aria-label="Sidebar"
+        >
+          <a
+            href="#sect1"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+          >
+            <span class="flex-1">Simulation outputs</span>
+          </a>
+
+          <a
+            href="#sect2"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+          >
+            <span class="flex-1">Attributes of individual agents</span>
+          </a>
+
+          <a
+            href="#sect3"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+          >
+            <span class="flex-1"
+              >Dengue transmission and information diffusion parameters</span
+            >
+          </a>
+
+          <a
+            href="#sect4"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md"
+          >
+            <span class="flex-1">Citations</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="ml-40">
+      <section class="p-5" id="sect1">
+        <h2>Simulation outputs</h2>
+        <div class="pl-5">
+          <img src="anim.gif" alt="Final network figure" />
+          <img src="final_network_figure.png" alt="Final network figure" />
+        </div>
+      </section>
+      <section class="p-5" id="sect2">
+        <h2>Attributes of individual agents</h2>
+        <div class="pl-5">
+          <table>
+            <thead>
+              <tr>
+                <th>Attributes</th>
+                <th>Descriptions</th>
+                <th>Values</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Disease State</td>
+                <td>Agent occupies one of four disease states</td>
+                <td>Susceptible, Exposed, Infectious or Recovered</td>
+              </tr>
+              <tr>
+                <td>Symptomatic Status</td>
+                <td>Agent has dengue symptoms</td>
+                <td>True or False</td>
+              </tr>
+              <tr>
+                <td>Information State</td>
+                <td>Awareness of dengue circulation</td>
+                <td>Uninformed or Informed</td>
+              </tr>
+              <tr>
+                <td>First Informed</td>
+                <td>Time when agent becomes informed of dengue circulation</td>
+                <td>Integer</td>
+              </tr>
+              <tr>
+                <td>DART Informed</td>
+                <td>Number of times informed by DART</td>
+                <td>Integer</td>
+              </tr>
+              <tr>
+                <td>Talk Informed</td>
+                <td>Number of times informed by word-of-mouth communication</td>
+                <td>Integer</td>
+              </tr>
+              <tr>
+                <td>Total Informed</td>
+                <td>Total number of times informed of dengue circulation</td>
+                <td>Integer</td>
+              </tr>
+              <tr>
+                <td>Behavior State</td>
+                <td>Adoption of health-protective behavior</td>
+                <td>Adopted or Not Adopted</td>
+              </tr>
+              <tr>
+                <td>Adoption Threshold</td>
+                <td>
+                  Willingness to adopt health-protective behavior once informed
+                </td>
+                <td>0 to 1</td>
+              </tr>
+              <tr>
+                <td>Mosquito Contact Reduction Efficacy</td>
+                <td>
+                  Intensity of behavior adoption when reducing mosquito contact
+                </td>
+                <td>0 to 0.7</td>
+              </tr>
+              <tr>
+                <td>Insecticide Efficacy</td>
+                <td>Intensity of behavior adoption when using insecticide</td>
+                <td>0 to 0.8</td>
+              </tr>
+              <tr></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="p-5" id="sect3">
+        <h2>Dengue transmission and information diffusion parameters</h2>
+        <div class="pl-5">
+          <table>
+            <thead>
+              <tr>
+                <th>Parameters</th>
+                <th>Descriptions</th>
+                <th>Values</th>
+                <th>Sources</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><p>\(\nu_h\)</p></td>
+                <td>
+                  Transition rate from exposed to infectious state for humans
+                </td>
+                <td>1/5 days<sup>-1</sup><br />var = 0.001</td>
+                <td>Manore et al., 2015</td>
+              </tr>
+              <tr>
+                <td><p>\(\mu_h\)</p></td>
+                <td>
+                  Transition rate from infectious to recovered state for humans
+                </td>
+                <td>
+                  1/6 days<sup>-1 <br /> </sup>var = 0.001
+                </td>
+                <td>Manore et al., 2015</td>
+              </tr>
+              <tr>
+                <td><p>\(\psi_v\)</p></td>
+                <td>
+                  Natural per capita emergence rate of female adult mosquito
+                  emergence
+                </td>
+                <td>1/3</td>
+                <td>Manore et al., 2015</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(\mu_v\)</p>
+                </td>
+                <td>Natural death rate of mosquitoes</td>
+                <td>1/40</td>
+                <td>Andraud et al., 2012</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(\nu_v\)</p>
+                </td>
+                <td>
+                  Transition rate from exposed to infectious state for
+                  mosquitoes
+                </td>
+                <td>1/8 days<sup>-1</sup></td>
+                <td>Manore et al., 2015</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(\sigma_v\)</p>
+                </td>
+                <td>Maximum times one mosquito bite human per day</td>
+                <td>1/2</td>
+                <td>Manore et al., 2015</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(\sigma_h\)</p>
+                </td>
+                <td>Maximum mosquito bites human can sustain per day</td>
+                <td>19</td>
+                <td>Manore et al., 2015</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(\beta_{hv}\)</p>
+                </td>
+                <td>
+                  Transmission probability between infectious mosquito and
+                  susceptible human
+                </td>
+                <td>0.50</td>
+                <td>Andraud et al., 2012</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(\beta_{vh}\)</p>
+                </td>
+                <td>
+                  Transmission probability between infectious human and
+                  susceptible host
+                </td>
+                <td>0.75</td>
+                <td>Andraud et al., 2012</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(e\)</p>
+                </td>
+                <td>Mosquito death rate from pesticide use</td>
+                <td>0.50</td>
+                <td>Khan et al., 2021</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(K_v\)</p>
+                </td>
+                <td>Mosquito carrying capacity</td>
+                <td>5000</td>
+                <td>Baseline value</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>\(N_h\)</p>
+                </td>
+                <td>Total human population</td>
+                <td>1000</td>
+                <td>Baseline value</td>
+              </tr>
+              <tr>
+                <td>Initially infected</td>
+                <td>Percent of initial infected population</td>
+                <td>0.05 %</td>
+                <td>Baseline value</td>
+              </tr>
+              <tr>
+                <td>Edge probability</td>
+                <td>Probability two agents connect</td>
+                <td>0.03 %</td>
+                <td>Baseline value</td>
+              </tr>
+              <tr>
+                <td>Simulation period</td>
+                <td>Simulation period run-time</td>
+                <td>200 days</td>
+                <td>Baseline value</td>
+              </tr>
+              <tr>
+                <td>Human time step</td>
+                <td>Time step for agent-based model simulation</td>
+                <td>0.25 days</td>
+                <td>Baseline value</td>
+              </tr>
+              <tr>
+                <td>Mosquito time step</td>
+                <td>Time step for ODE model</td>
+                <td>0.005 days</td>
+                <td>Baseline value</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="p-5" id="sect4">
+        <h2>Citations</h2>
+        <div class="pl-5"></div>
+      </section>
+    </div>
   </body>
 </html>
