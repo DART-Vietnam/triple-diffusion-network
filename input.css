@@ -4,13 +4,13 @@
 
 td,
 th {
-  @apply border-y p-2 border-slate-500;
+  @apply p-2 border-y border-slate-500;
 }
 
 table {
-  @apply table-auto border-collapse border w-full;
+  @apply w-full mt-2 border border-collapse table-auto;
 }
 
 h2 {
-  @apply text-xl py-3 font-semibold;
+  @apply py-3 text-2xl font-semibold;
 }
