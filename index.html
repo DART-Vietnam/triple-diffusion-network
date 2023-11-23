@@ -15,7 +15,7 @@
     ></script>
   </head>
   <body class="w-screen px-10 py-5 overflow-x-hidden">
-    <section class="ml-40">
+    <section class="md:ml-40">
       <h1 class="text-3xl font-bold">
         QUANTIFYING THE VALUE OF AN EARLY WARNING SYSTEM ON DENGUE PREVENTION
       </h1>
@@ -23,7 +23,7 @@
 
     <!-- Vertical nav bar -->
     <div
-      class="fixed top-0 left-0 flex flex-col flex-1 w-40 h-full pt-5 bg-gray-800"
+      class="fixed top-0 left-0 flex-col flex-1 hidden w-40 h-full pt-5 bg-gray-800 md:flex"
     >
       <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
         <nav
@@ -64,11 +64,11 @@
     </div>
 
     <!-- Main body content -->
-    <div class="ml-40">
-      <section class="p-5" id="sect1">
+    <div class="md:ml-40">
+      <section id="sect1">
         <h2>Simulation outputs</h2>
-        <div class="pl-5">
-          <div class="p-5 m-5 mx-auto shadow-lg w-fit">
+        <div class="md:pl-5">
+          <div class="m-5 mx-auto shadow-lg md:p-5 w-fit">
             <video controls loop>
               <source src="networkviz-6.mp4" type="video/mp4" />
             </video>
@@ -78,9 +78,9 @@
           </div>
         </div>
       </section>
-      <section class="p-5" id="sect2">
+      <section id="sect2">
         <h2>Attributes of individual agents</h2>
-        <div class="pl-5">
+        <div class="md:pl-5">
           <table>
             <thead>
               <tr>
@@ -154,9 +154,9 @@
           </table>
         </div>
       </section>
-      <section class="p-5" id="sect3">
+      <section id="sect3">
         <h2>Dengue transmission and information diffusion parameters</h2>
-        <div class="pl-5">
+        <div class="md:pl-5">
           <table>
             <thead>
               <tr>
@@ -309,7 +309,7 @@
           </table>
         </div>
       </section>
-      <section class="p-5" id="sect4">
+      <section id="sect4">
         <h2>Citations</h2>
         <div class="pl-5"></div>
       </section>

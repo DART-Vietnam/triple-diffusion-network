@@ -14,3 +14,7 @@ table {
 h2 {
   @apply py-3 text-2xl font-semibold;
 }
+
+section {
+  @apply p-1 md:p-5
+}
